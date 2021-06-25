@@ -1,0 +1,133 @@
+// Style Guide variables
+$font-size: 16px;
+$font-stack: "Karla", sans-serif;
+$cyan: hsl(179, 62%, 43%);
+$bright-yellow: hsl(71, 73%, 54%);
+$light-gray: hsl(204, 43%, 93%);
+$grayish-blue: hsl(218, 22%, 67%);
+$light-green: rgb(74, 190, 189);
+
+html {
+    font-family: $font-stack;
+    font-size: $font-size;
+    background-color: $light-gray;
+}
+
+main {
+    border-radius: 7px;
+    overflow: hidden;
+
+    margin: 19.2vw 8.5vw 7.6vw 8.5vw;
+    height: 192.5vw;
+
+    display: grid;
+    grid-template-columns: 83vw;
+    grid-template-rows: 4.7fr 4fr 4fr;
+}
+
+h1,
+h2,
+p {
+    margin: 0;
+}
+
+h1 {
+    font-size: 5.2vw;
+}
+
+h2 {
+    font-size: 4.2vw;
+}
+
+p {
+    font-size: 3.75vw;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    // padding: 3.5vw 0 4.3vw 6.4vw;
+    padding-left: 6.4vw;
+    padding-right: 6.4vw;
+}
+
+@mixin theme($theme, $heading, $sub-heading, $paragraph) {
+    background-color: $theme;
+    h1 {
+        color: $heading;
+    }
+    h2 {
+        color: $sub-heading;
+    }
+    p {
+        color: $paragraph;
+    }
+}
+
+#pitch {
+    @include theme(white, $cyan, $bright-yellow, $grayish-blue);
+    p {
+        opacity: 0.75;
+        line-height: 1.8;
+    }
+}
+
+#subscription {
+    @include theme($cyan, white, rgb(166, 212, 216), white);
+
+    h1 {
+        opacity: 0.85;
+    }
+
+    h2 {
+        font-weight: 400;
+    }
+
+    #money {
+        color: white;
+        font-size: 8.5vw;
+        margin-right: 2.5vw;
+        font-weight: 700;
+    }
+
+    p {
+        opacity: 0.75;
+        font-size: 4vw;
+    }
+
+    button {
+        color: white;
+        font-size: 4vw;
+        background-color: $bright-yellow;
+        padding: 16px 0;
+        border: 0;
+        border-radius: 5px;
+        box-shadow: 2px 5px 10px 0px rgba(0, 0, 0, 0.2);
+    }
+}
+
+#details {
+    @include theme($light-green, white, white, $light-gray);
+
+    p {
+        margin-bottom: 1vw;
+    }
+}
+
+footer {
+    font-size: 3vw;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 8vw;
+}
+
+footer a {
+    color: rgba(0, 0, 0, 0.9);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

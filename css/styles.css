@@ -1,0 +1,130 @@
+html {
+  font-family: "Karla", sans-serif;
+  font-size: 16px;
+  background-color: #e5eff5;
+}
+
+main {
+  border-radius: 7px;
+  overflow: hidden;
+  margin: 19.2vw 8.5vw 7.6vw 8.5vw;
+  height: 192.5vw;
+  display: grid;
+  grid-template-columns: 83vw;
+  grid-template-rows: 4.7fr 4fr 4fr;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 5.2vw;
+}
+
+h2 {
+  font-size: 4.2vw;
+}
+
+p {
+  font-size: 3.75vw;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-left: 6.4vw;
+  padding-right: 6.4vw;
+}
+
+#pitch {
+  background-color: white;
+}
+#pitch h1 {
+  color: #2ab2af;
+}
+#pitch h2 {
+  color: #c0df34;
+}
+#pitch p {
+  color: #98a6bd;
+}
+#pitch p {
+  opacity: 0.75;
+  line-height: 1.8;
+}
+
+#subscription {
+  background-color: #2ab2af;
+}
+#subscription h1 {
+  color: white;
+}
+#subscription h2 {
+  color: #a6d4d8;
+}
+#subscription p {
+  color: white;
+}
+#subscription h1 {
+  opacity: 0.85;
+}
+#subscription h2 {
+  font-weight: 400;
+}
+#subscription #money {
+  color: white;
+  font-size: 8.5vw;
+  margin-right: 2.5vw;
+  font-weight: 700;
+}
+#subscription p {
+  opacity: 0.75;
+  font-size: 4vw;
+}
+#subscription button {
+  color: white;
+  font-size: 4vw;
+  background-color: #c0df34;
+  padding: 16px 0;
+  border: 0;
+  border-radius: 5px;
+  box-shadow: 2px 5px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+#details {
+  background-color: #4abebd;
+}
+#details h1 {
+  color: white;
+}
+#details h2 {
+  color: white;
+}
+#details p {
+  color: #e5eff5;
+}
+#details p {
+  margin-bottom: 1vw;
+}
+
+footer {
+  font-size: 3vw;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 8vw;
+}
+
+footer a {
+  color: rgba(0, 0, 0, 0.9);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=styles.css.map */
