@@ -4,14 +4,33 @@ html {
   background-color: #e5eff5;
 }
 
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 main {
   border-radius: 7px;
   overflow: hidden;
-  margin: 19.2vw 8.5vw 7.6vw 8.5vw;
+  box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.2);
+  margin: 19.2vw 8.5vw 9.6vw 8.5vw;
   height: 192.5vw;
   display: grid;
   grid-template-columns: 83vw;
   grid-template-rows: 4.7fr 4fr 4fr;
+  grid-template-areas: "pitch" "subscription" "details";
+}
+@media (min-width: 1440px) {
+  main {
+    margin: unset;
+    height: unset;
+    grid-template-columns: 22vw 22vw;
+    grid-template-rows: 16.5vw 16.5vw;
+    grid-template-areas: "pitch pitch" "subscription details";
+  }
 }
 
 h1,
@@ -23,13 +42,28 @@ p {
 h1 {
   font-size: 5.2vw;
 }
+@media (min-width: 1440px) {
+  h1 {
+    font-size: 1.587vw;
+  }
+}
 
 h2 {
   font-size: 4.2vw;
 }
+@media (min-width: 1440px) {
+  h2 {
+    font-size: 1.2vw;
+  }
+}
 
 p {
   font-size: 3.75vw;
+}
+@media (min-width: 1440px) {
+  p {
+    font-size: 1.1vw;
+  }
 }
 
 section {
@@ -39,8 +73,14 @@ section {
   padding-left: 6.4vw;
   padding-right: 6.4vw;
 }
+@media (min-width: 1440px) {
+  section {
+    padding: 0.556vw 2.778vw;
+  }
+}
 
 #pitch {
+  grid-area: pitch;
   background-color: white;
 }
 #pitch h1 {
@@ -58,6 +98,7 @@ section {
 }
 
 #subscription {
+  grid-area: subscription;
   background-color: #2ab2af;
 }
 #subscription h1 {
@@ -72,6 +113,11 @@ section {
 #subscription h1 {
   opacity: 0.85;
 }
+@media (min-width: 1440px) {
+  #subscription h1 {
+    font-size: 1.19vw;
+  }
+}
 #subscription h2 {
   font-weight: 400;
 }
@@ -80,10 +126,22 @@ section {
   font-size: 8.5vw;
   margin-right: 2.5vw;
   font-weight: 700;
+  vertical-align: middle;
+}
+@media (min-width: 1440px) {
+  #subscription #money {
+    font-size: 2.4vw;
+    margin-right: 0.4vw;
+  }
 }
 #subscription p {
   opacity: 0.75;
   font-size: 4vw;
+}
+@media (min-width: 1440px) {
+  #subscription p {
+    font-size: 1.1vw;
+  }
 }
 #subscription button {
   color: white;
@@ -93,9 +151,21 @@ section {
   border: 0;
   border-radius: 5px;
   box-shadow: 2px 5px 10px 0px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease-out;
+}
+@media (min-width: 1440px) {
+  #subscription button {
+    font-size: 1.111vw;
+  }
+}
+#subscription button:hover {
+  background-color: transparent;
+  border: 2px solid white;
+  padding: 14px 0;
 }
 
 #details {
+  grid-area: details;
   background-color: #4abebd;
 }
 #details h1 {
@@ -107,15 +177,36 @@ section {
 #details p {
   color: #e5eff5;
 }
+@media (min-width: 1440px) {
+  #details h1 {
+    font-size: 1.19vw;
+  }
+}
 #details p {
   margin-bottom: 1vw;
+}
+@media (min-width: 1440px) {
+  #details p {
+    margin-bottom: 0vw;
+  }
+}
+#details #details-text {
+  opacity: 0.8;
 }
 
 footer {
   font-size: 3vw;
   text-align: center;
   color: rgba(0, 0, 0, 0.6);
-  margin-bottom: 8vw;
+  margin-bottom: 6vw;
+}
+@media (min-width: 1440px) {
+  footer {
+    position: absolute;
+    bottom: 50px;
+    font-size: 0.8vw;
+    margin-bottom: unset;
+  }
 }
 
 footer a {

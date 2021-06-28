@@ -7,22 +7,54 @@ $light-gray: hsl(204, 43%, 93%);
 $grayish-blue: hsl(218, 22%, 67%);
 $light-green: rgb(74, 190, 189);
 
+// Media query with Mixin
+@mixin desktop {
+    @media (min-width: 1440px) {
+        @content;
+    }
+}
+
 html {
     font-family: $font-stack;
     font-size: $font-size;
     background-color: $light-gray;
 }
 
+// center the content
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 main {
     border-radius: 7px;
     overflow: hidden;
+    box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.2);
 
-    margin: 19.2vw 8.5vw 7.6vw 8.5vw;
+    margin: 19.2vw 8.5vw 9.6vw 8.5vw;
     height: 192.5vw;
 
     display: grid;
     grid-template-columns: 83vw;
     grid-template-rows: 4.7fr 4fr 4fr;
+    grid-template-areas:
+        "pitch"
+        "subscription"
+        "details";
+
+    @include desktop {
+        margin: unset;
+        height: unset;
+
+        grid-template-columns: 22vw 22vw;
+        grid-template-rows: 16.5vw 16.5vw;
+        grid-template-areas:
+            "pitch pitch"
+            "subscription details";
+    }
 }
 
 h1,
@@ -33,14 +65,26 @@ p {
 
 h1 {
     font-size: 5.2vw;
+
+    @include desktop {
+        font-size: 1.587vw;
+    }
 }
 
 h2 {
     font-size: 4.2vw;
+
+    @include desktop {
+        font-size: 1.2vw;
+    }
 }
 
 p {
     font-size: 3.75vw;
+
+    @include desktop {
+        font-size: 1.1vw;
+    }
 }
 
 section {
@@ -48,12 +92,18 @@ section {
     flex-direction: column;
     justify-content: space-evenly;
 
-    // padding: 3.5vw 0 4.3vw 6.4vw;
     padding-left: 6.4vw;
     padding-right: 6.4vw;
+
+    @include desktop {
+        padding: 0.556vw 2.778vw;
+        // padding-left: 2.778vw;
+        // padding-right: 2.778vw;
+    }
 }
 
-@mixin theme($theme, $heading, $sub-heading, $paragraph) {
+@mixin theme($name, $theme, $heading, $sub-heading, $paragraph) {
+    grid-area: $name;
     background-color: $theme;
     h1 {
         color: $heading;
@@ -67,7 +117,7 @@ section {
 }
 
 #pitch {
-    @include theme(white, $cyan, $bright-yellow, $grayish-blue);
+    @include theme(pitch, white, $cyan, $bright-yellow, $grayish-blue);
     p {
         opacity: 0.75;
         line-height: 1.8;
@@ -75,10 +125,13 @@ section {
 }
 
 #subscription {
-    @include theme($cyan, white, rgb(166, 212, 216), white);
+    @include theme(subscription, $cyan, white, rgb(166, 212, 216), white);
 
     h1 {
         opacity: 0.85;
+        @include desktop {
+            font-size: 1.19vw;
+        }
     }
 
     h2 {
@@ -90,11 +143,21 @@ section {
         font-size: 8.5vw;
         margin-right: 2.5vw;
         font-weight: 700;
+        vertical-align: middle;
+
+        @include desktop {
+            font-size: 2.4vw;
+            margin-right: 0.4vw;
+        }
     }
 
     p {
         opacity: 0.75;
         font-size: 4vw;
+
+        @include desktop {
+            font-size: 1.1vw;
+        }
     }
 
     button {
@@ -105,14 +168,40 @@ section {
         border: 0;
         border-radius: 5px;
         box-shadow: 2px 5px 10px 0px rgba(0, 0, 0, 0.2);
+
+        transition: background-color 0.3s ease-out;
+
+        @include desktop {
+            font-size: 1.111vw;
+        }
+    }
+
+    button:hover {
+        background-color: transparent;
+        border: 2px solid white;
+        padding: 14px 0;
     }
 }
 
 #details {
-    @include theme($light-green, white, white, $light-gray);
+    @include theme(details, $light-green, white, white, $light-gray);
+
+    h1 {
+        @include desktop {
+            font-size: 1.19vw;
+        }
+    }
 
     p {
         margin-bottom: 1vw;
+
+        @include desktop {
+            margin-bottom: 0vw;
+        }
+    }
+
+    #details-text {
+        opacity: 0.8;
     }
 }
 
@@ -120,7 +209,14 @@ footer {
     font-size: 3vw;
     text-align: center;
     color: rgba(0, 0, 0, 0.6);
-    margin-bottom: 8vw;
+    margin-bottom: 6vw;
+
+    @include desktop {
+        position: absolute;
+        bottom: 50px;
+        font-size: 0.8vw;
+        margin-bottom: unset;
+    }
 }
 
 footer a {
